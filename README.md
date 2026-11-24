@@ -40,6 +40,8 @@ npm run start     # Serve a production build
 
 Create a Supabase project, copy the project URL and publishable key into `.env.local`, and configure the allowed redirect URLs in Supabase Auth for local and deployed environments. The app uses `@supabase/ssr`: browser and server clients are in `src/lib/supabase`, and Next.js 16 session refresh is handled by `src/proxy.ts`. Database types in `src/types/database.ts` are a starter and should be generated from the actual schema before querying application tables.
 
+The initial SQL schema is in `supabase/migrations/`. Install and link the Supabase CLI to the intended project before running `supabase db push --remote`; inspect the project first because the migration deliberately aborts if any of its table names already exist. Set `SUPABASE_SECRET_KEY` only for trusted server-side grading and protected content management. The `createAdminClient()` helper is server-only; it also accepts the legacy `SUPABASE_SERVICE_ROLE_KEY` name. Never place either value in a `NEXT_PUBLIC_` variable. See `docs/database.md` for RLS, answer-key, grading, storage, and type-generation details. Promote the first administrator through a trusted database operator after the user profile is created.
+
 ## Documentation
 
 See `docs/architecture.md`, `docs/project-structure.md`, `docs/development-guide.md`, `docs/internationalization.md`, and `docs/database.md`.

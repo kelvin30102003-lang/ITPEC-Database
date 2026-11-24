@@ -1,4 +1,4 @@
-﻿/** Replace this starter shape with `supabase gen types typescript` output after schema work begins. */
+/** Existing `todos` type is retained for the current dashboard query. Regenerate complete schema types after the SQL migration is applied. */
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
 export type Database = {
@@ -12,9 +12,17 @@ export type Database = {
       };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      grade_exam_attempt: {
+        Args: { p_attempt_id: string };
+        Returns: undefined;
+      };
+      complete_practice_session: {
+        Args: { p_session_id: string };
+        Returns: undefined;
+      };
+    };
     Enums: Record<string, never>;
     CompositeTypes: Record<string, never>;
   };
 };
-
