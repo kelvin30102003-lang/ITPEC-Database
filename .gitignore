@@ -424,3 +424,13 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Next.js
+/node_modules
+/.next
+/out
+/build
+.env*
+.vercel
+*.tsbuildinfo
+next-env.d.ts
