@@ -1,0 +1,5 @@
+import { AlertCircle, Inbox, LoaderCircle } from "lucide-react";
+
+export function LoadingState({ label = "Loading…" }: { label?: string }) { return <div aria-live="polite" className="flex items-center gap-2 py-8 text-slate-600"><LoaderCircle aria-hidden="true" className="size-4 animate-spin" />{label}</div>; }
+export function ErrorState({ message = "Something went wrong." }: { message?: string }) { return <div role="alert" className="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 p-4 text-red-800"><AlertCircle aria-hidden="true" className="size-5" />{message}</div>; }
+export function EmptyState({ title = "Nothing here yet.", description }: { title?: string; description?: string }) { return <div className="rounded-xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center"><Inbox aria-hidden="true" className="mx-auto size-8 text-slate-400" /><p className="mt-3 font-medium text-slate-800">{title}</p>{description && <p className="mt-1 text-sm text-slate-500">{description}</p>}</div>; }

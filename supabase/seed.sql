@@ -1,0 +1,1 @@
+-- Add development-only seed data after the initial application schema is defined.
